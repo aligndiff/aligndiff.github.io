@@ -1,400 +1,410 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="AlignDiff: Aligning Diverse Human Preferences via Behavior-Customisable Diffusion Model"
-    />
-    <!-- <meta name="keywords" content="Reinforcement Learning, Diffusion Model, Trajectory Optimization" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      AlignDiff: Aligning Diverse Human Preferences via Behavior-Customisable Diffusion Model
-    </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="./public/index.css" rel="stylesheet" />
-    <link href="./public/media.css" rel="stylesheet" />
-    <link href="./public/sidebars.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="./public/js/base.js"></script>
-  </head>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model">
+  <!-- <meta name="keywords" content="Nerfies, D-NeRF, NeRF"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model</title>
 
-  <body>
-    <div class="sidebarsWrapper">
-      <div class="sidebars">
-        <a class="barWrapper" clear href="#abstract-a" id="bar2"
-          ><span>Abstract</span>
-          <div class="bar"></div
-        ></a>
-        <a class="barWrapper" clear href="#tr2-a" id="bar3"
-          ><span>Trajectory Translation</span>
-          <div class="bar"></div
-        ></a>
-        <a class="barWrapper" clear href="#results-a" id="bar4"
-          ><span>Results</span>
-          <div class="bar"></div
-        ></a>
-        <a class="barWrapper" clear href="#attn-a" id="bar5"
-          ><span>Attention Analysis</span>
-          <div class="bar"></div
-        ></a>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model</h1>
+          <div class="is-size-5 publication-authors">
+            <!-- <span class="author-block">
+              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+            </span>
+          </div> -->
+<!-- 
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Washington,</span>
+            <span class="author-block"><sup>2</sup>Google Research</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2310.02054.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.02054"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/aligndiff/aligndiff.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
-    <main class="content">
-      <section class="heading">
-        <h1 class="title">
-          AlignDiff: Aligning Diverse Human Preferences via Behavior-Customisable Diffusion Model
-        </h1>
-        <!-- <section class="authors">
-          <ul>
-            <li>
-              <span
-                ><a
-                  href="https://fei-ni.github.io"
-                  rel="noreferrer"
-                  target="_blank"
-              >Fei Ni</a
-                ><sup>1</sup></span
-              >
-            </li>
-            <li>
-              <span
-                ><a
-                  href="http://www.icdai.org/jianye.html/"
-                  rel="noreferrer"
-                  target="_blank"
-                  >Jianye Hao</a
-                ><sup>1 3</sup></span
-              >
-            </li>
-            <li>
-              <span
-                ><a
-                  href="https://yaomarkmu.github.io/"
-                  rel="noreferrer"
-                  target="_blank"
-                  >Yao Mu</a
-                ><sup>2</sup></span
-              >
-            </li>
-            <li>
-              <span
-                ><a
-                  href="https://scholar.google.com/citations?hl=zh-CN&user=83JhosMAAAAJ"
-                  rel="noreferrer"
-                  target="_blank"
-                  >Yifu Yuan</a
-                ><sup>1</sup></span
-              >
-            </li>
-            <li>
-              <span
-                ><a
-                  href="https://yanzzzzz.github.io"
-                  rel="noreferrer"
-                  target="_blank"
-                  >Yan Zheng</a
-                ><sup>1</sup></span
-              >
-            </li>
-            <li>
-              <span
-                ><a
-                  href="https://scholar.google.com.hk/citations?user=KWZG_YsAAAAJ&hl=zh-CN&oi=sra"
-                  rel="noreferrer"
-                  target="_blank"
-                  >Bin Wang</a
-                ><sup>3</sup></span
-              >
-            </li>
-            <li>
-              <span
-                ><a
-                  href="https://liang-zx.github.io/"
-                  rel="noreferrer"
-                  target="_blank"
-                  >Zhixuan Liang</a
-                ><sup>2</sup></span
-              >
-            </li>
-          </ul>
-        </section> -->
-        <!-- <section class="affiliations">
-          <ul>
-            <span class="author-block"><sup>1</sup>Tianjin University,</span>
-            <span class="author-block"><sup>2</sup>The University of Hong Kong,</span>
-            <span class="author-block"><sup>3</sup>Huawei Noah's Ark Lab</span>
-          </ul>
-        </section> -->
-        <section class="links">
-          <ul>
-            <a href="" rel="noreferrer" target="_blank">
-              <li>
-                <span class="icon"> <img src="./public/paper.svg" /> </span
-                ><span>Paper</span>
-              </li>
-            </a>
-<!--            <a-->
-<!--              href="https://youtu.be/ZjRYlRRV9IA"-->
-<!--              rel="noreferrer"-->
-<!--              target="_blank"-->
-<!--            >-->
-<!--              <li>-->
-<!--                <span class="icon"> <img src="./public/video.svg" /> </span-->
-<!--                ><span>Video</span>-->
-<!--              </li>-->
-<!--            </a>-->
-            <a
-              href=""
-              rel="noreferrer"
-              target="_blank"
-            >
-              <li>
-                <span class="icon">
-                  <img src="./public/github.svg" />
-                </span>
-                <span>Code</span>
-              </li>
-            </a>
-            <!-- <a><li>Video</li></a> -->
-          </ul>
-        </section>
-        <a class="anchor" id="abstract-a"></a>
-        <h2>Abstract</h2>
-        <p class="abstract" style="font-family: 'Times New Roman', Arial;">
-          <!-- Diffusion models have demonstrated their powerful generative capability in many tasks, with great potential to serve as a paradigm for offline reinforcement learning. However, the quality of the diffusion model is limited by the insufficient diversity of training data, which hinders the performance of planning and the generalizability to new tasks. This paper introduces AdaptDiffuser, an evolutionary planning method with diffusion that can self-evolve to improve the diffusion model hence a better planner, not only for seen tasks but can also adapt to unseen tasks. AdaptDiffuser enables the generation of rich synthetic expert data for goal-conditioned tasks using guidance from reward gradients. It then selects high-quality data via a discriminator to finetune the diffusion model, which improves the generalization ability to unseen tasks. Empirical experiments on two benchmark environments and two carefully designed unseen tasks in KUKA industrial robot arm and Maze2D environments demonstrate the effectiveness of AdaptDiffuser. For example, AdaptDiffuser not only outperforms the previous art <a href="https://diffusion-planning.github.io/" rel="noreferrer" target="_blank">Diffuser</a> by 20.8% on Maze2D and 7.5% on MuJoCo locomotion, but also adapts better to new tasks, e.g., KUKA pick-and-place, by 27.9% without requiring additional expert data. -->
+  </div>
+</section>
 
-          Aligning agent behaviors with diverse human preferences remains a challenging problem in reinforcement learning (RL), owing to the inherent abstractness and mutability of human preferences. To address these issues, we propose AlignDiff, a novel framework that leverages RLHF to quantify human preferences, covering abstractness, and utilizes them to guide diffusion planning for zero-shot behavior customizing, covering mutability. AlignDiff can accurately match user-customized behaviors and efficiently switch from one to another. To build the framework, we first establish the multi-perspective human feedback datasets, which contain comparisons for the attributes of diverse behaviors, and then train an attribute strength model to predict quantified relative strengths. After relabeling behavioral datasets with relative strengths, we proceed to train an attribute-conditioned diffusion model, which serves as a planner with the attribute strength model as a director for preference aligning at the inference phase. We evaluate AlignDiff on various locomotion tasks and demonstrate its superior performance on preference matching, switching, and covering compared to other baselines. Its capability of completing unseen downstream tasks under human instructions also showcases the promising potential for human-AI collaboration. More visualization videos are released on https://aligndiff.github.io/.
-        </p>
-      </section>
-      <br />
-      <section class="head-media">
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section>
 
-          <div style="display: flex; margin: auto; width: 95%">
-          <img
-          style="width: 90%"
-          src="./public/images/AlignDiff_main.svg"
-          />
-          
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
         </div>
-<!--         <div style="display: flex; width: 90%; margin: auto">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <img
-          style="width: 60%"
-          src="./public/images/motivation.png"
-          />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-          <p class="caption" style="text-align: justify; font-family: 'Times New Roman'"><br />
-            <strong>Overview of AlignDiff.</strong> AlignDiff leverages RLHF to quantify human preferences and utilizes them to guide diffusion planning for zero-shot behavior customizing. 
-            Firstly, we collect multi-perspective human feedback through crowdsourcing. Secondly, we use this feedback to train an attribute strength model, 
-            which we then use to relabel the behavioral datasets. Thirdly, we train a diffusion model on the annotated datasets,
-            which can understand and generate trajectories with various attributes. Lastly, we can use AlignDiff for inference, 
-            aligning agent behaviors with human preferences at any time.
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Aligning agent behaviors with diverse human preferences remains a challenging problem in reinforcement learning (RL), 
+            owing to the inherent <i>abstractness</i> and <i>mutability</i> of human preferences. To address these issues, 
+            we propose <b>AlignDiff</b>, a novel framework that leverages RL from Human Feedback (RLHF) to quantify human preferences, 
+            covering <i>abstractness</i>, and utilizes them to guide diffusion planning for zero-shot behavior customizing, covering 
+            <i>mutability</i>. AlignDiff can accurately match user-customized behaviors and efficiently switch from one to another. 
+            To build the framework, we first establish the multi-perspective human feedback datasets, which contain comparisons for 
+            the attributes of diverse behaviors, and then train an attribute strength model to predict quantified relative strengths. 
+            After relabeling behavioral datasets with relative strengths, we proceed to train an attribute-conditioned diffusion model, 
+            which serves as a planner with the attribute strength model as a director for preference aligning at the inference phase. 
+            We evaluate AlignDiff on various locomotion tasks and demonstrate its superior performance on preference matching, switching, 
+            and covering compared to other baselines. Its capability of completing unseen downstream tasks under human instructions also 
+            showcases the promising potential for human-AI collaboration. More visualization videos are released on 
+            <a href="https://aligndiff.github.io/">https://aligndiff.github.io/</a>.
           </p>
-
         </div>
-      </section>
-      <br />
-<!--      <section class="head-media">-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source-->
-<!--            src="./public/videos/castle-stack-medium.mp4"-->
-<!--            type="video/mp4"-->
-<!--          />-->
-<!--        </video>-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source src="./public/videos/creeperonsnow.mp4" type="video/mp4" />-->
-<!--        </video>-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source src="./public/videos/snowgolem.mp4" type="video/mp4" />-->
-<!--        </video>-->
-<!--        <video autoplay="" muted="" loop="" height="100%">-->
-<!--          <source src="./public/videos/torch.mp4" type="video/mp4" />-->
-<!--        </video>-->
-<!--        <br />-->
-<!--        <p class="caption">-->
-<!--          Videos of succesful long-horizon block stacking tasks performed in the-->
-<!--          real-world using a trajectory translation policy trained in-->
-<!--          simulation. Tasks are unseen and require manipulation of blocks in-->
-<!--          locations beyond the original training distribution.-->
-<!--        </p>-->
-<!--      </section>-->
+      </div>
+    </div>
+    <!--/ Abstract. -->
 
-<!--        <a class="anchor" id="results-a"></a>-->
-<!--        <h2>Results</h2>-->
-<!--        <p>-->
-<!--          We show example translations of abstract trajectories executed-->
-<!--          trajectories below as well as detail the environments used and domain-->
-<!--          gaps bridged. The left column of videos shows the abstract trajectory-->
-<!--          and the right column shows the executed trajectory. The high-level-->
-<!--          agents are written using simple heuristics and are represented as a-->
-<!--          point mass floating in 2D/3D space. As the abstract trajectory lacks-->
-<!--          low-level details, the low-level agent must learn and discover these-->
-<!--          details such as object manipulation and apply them while mimicing the-->
-<!--          abstract trajectory. Furthermore, re-planning is a feasible feature as-->
-<!--          abstract trajectories can be re-generated to handle mistakes or-->
-<!--          external interventions.-->
-<!--          &lt;!&ndash; Note that while objects like blocks and drawers are rendered in the abstract trajectory display, the abstract trajectory itself only contains 3D position information. &ndash;&gt;-->
-<!--        </p>-->
+    <!-- Method. -->
+    <div class="columns"> 
+      <div class="column is-10 is-offset-1"> 
+        <h2 class="title is-3">Method</h2> 
+        <div style="display: flex; margin: auto; justify-content: center; width: 100%"> 
+          <img style="width: 100%" src="./static/images/AlignDiff_main.svg"/> 
+        </div> 
+        <div class="content has-text-justified" style="margin-top: 20px;"> 
+          <p class="caption"><br /> 
+            <strong>Overview of AlignDiff.</strong> AlignDiff leverages RLHF to quantify human preferences and 
+            utilizes them to guide diffusion planning for zero-shot behavior customizing. Firstly, 
+            we collect multi-perspective human feedback through crowdsourcing. Secondly, we use this 
+            feedback to train an attribute strength model, which we then use to relabel the behavioral 
+            datasets. Thirdly, we train a diffusion model on the annotated datasets, which can understand 
+            and generate trajectories with various attributes. Lastly, we can use AlignDiff for inference, 
+            aligning agent behaviors with human preferences at any time. 
+          </p> 
+        </div> 
+      </div> 
+    </div>
+    <!--/ Method. -->
 
-<!--        <div class="abstractexecutable">-->
-<!--          <p>-->
-<!--            Show abstract-to-executable translations on-->
-<!--            <select id="task-select">-->
-<!--              <option>Test Tasks</option>-->
-<!--              <option>Train Tasks</option>-->
-<!--            </select>-->
-<!--          </p>-->
-<!--          <div class="col-title">-->
-<!--            <p>Abstract Trajectory</p>-->
-<!--            <p>Executed Trajectory</p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/box_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/box_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Box Pusher</strong> <br />-->
-<!--              The training task is to control an agent (black box) to move a-->
-<!--              green box to a target (blue sphere). The high-level agent can-->
-<!--              magically grasp and thus drag the green box. However, the-->
-<!--              low-level agent is restricted to only pushing and must process the-->
-<!--              abstract trajectory to determine which direction to push the green-->
-<!--              box in. At test time there are obstacles observable only by the-->
-<!--              high-level agent.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/couch_moving_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/couch_moving_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Couch Moving</strong> <br />-->
-<!--              The training task is to move the couch shaped agent through a map-->
-<!--              of chambers and corners. The agent's couch morphology means that-->
-<!--              the agent must rotate in chambers ahead of time in order to go-->
-<!--              through corners. The high-level agent simply tells the low-level-->
-<!--              agent the path through the map, indicating where corners are, but-->
-<!--              it is up to the low-level agent to process this information to-->
-<!--              determine when to rotate in chambers. At test time, maps are-->
-<!--              longer and vary more.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/stack_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/stack_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Block Stacking</strong> <br />-->
-<!--              The training task is to stack a block with a robot arm. The-->
-<!--              high-level agent can magically grasp and release blocks anywhere-->
-<!--              and move easily through space. The low-level agent must process-->
-<!--              the abstract trajectory to determine where to pick up the block-->
-<!--              and where to stack it. At test time an agent has to stack multiple-->
-<!--              blocks in a row in locations beyond the training distribution.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/drawer_high_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <video autoplay="" muted="" loop="" height="100%">-->
-<!--              <source-->
-<!--                src="./public/videos/drawer_low_level.mp4"-->
-<!--                type="video/mp4"-->
-<!--              />-->
-<!--            </video>-->
-<!--            <p>-->
-<!--              <strong>Open Drawer</strong> <br />-->
-<!--              The training task is open various drawers on cabinets with a-->
-<!--              mobile robot arm. The high-level agent can magically grasp and-->
-<!--              pull open drawers easily. The low-level agent must process the-->
-<!--              abstract trajectory to determine how to follow the abstract-->
-<!--              trajectory and how to pull open the drawer. At test time the agent-->
-<!--              must open unseen drawers with unseen handles as well as open more-->
-<!--              than one drawer on a cabinet.-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <a class="anchor" id="attn-a"></a>-->
-<!--        <h2>Attention Analysis</h2>-->
-<!--        <p>-->
-<!--          To get an insight into how the transformer architecture enables the-->
-<!--          policy to solve environments more succesfully, we analyze the learned-->
-<!--          attention on the Couch Moving environment.-->
-<!--        </p>-->
-<!--        <div class="attn-video" style="text-align: center">-->
-<!--          <video autoplay="" muted="" loop="" height="100%" style="width: 75%">-->
-<!--            <source src="./public/videos/attn.mp4" type="video/mp4" />-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <p>-->
-<!--          In Couch Moving, the abstract trajectory is composed of high-level-->
-<!--          states which are simply the 2D position of the high-level agent moving-->
-<!--          through the maze. We can treat this as a map and easily visualize it-->
-<!--          over the map. The above video shows the attention over the abstract-->
-<!--          trajectory / map as the agent solves the task, with dark blue-->
-<!--          representing high attention and light blue representing minimal-->
-<!--          attention. We observe that when the agent is in a chamber, it learns-->
-<!--          to pay attention to the next or next next chamber, both of which are-->
-<!--          indicative of which orientation the next corner is in. With this-->
-<!--          attention, the agent is capable of making the correct decision on-->
-<!--          whether to rotate or not in order to move through the next corner.-->
-<!--          Results show that transformer architectures achieves much higher success-->
-<!--          rates compared to LSTM architectures or sub-goal conditioned policies.-->
-<!--        </p>-->
-<!--      </section>-->
-      <!-- <section class="citation">
-        <h2>Bibtex</h2>
-        <pre><code>@article{liang2023adaptdiffuser,
-          title={AdaptDiffuser: Diffusion Models as Adaptive Self-evolving Planners},
-          author={Liang, Zhixuan and Mu, Yao and Ding, Mingyu and Ni, Fei and Tomizuka, Masayoshi and Luo, Ping},
-          journal={arXiv preprint arXiv:2302.01877},
-          year={2023}
-        }</code></pre>
-      </section> -->
-<!--      <section class="acknowledgements">-->
-<!--        <h2>Acknowledgements</h2>-->
-<!--        <p>-->
-<!--          Special thanks to Jiayuan Gu for feedback on figures, and additional-->
-<!--          members of the SU Lab for writing feedback.-->
-<!--        </p>-->
-<!--      </section>-->
-    </main>
-  </body>
+    <h2 class="title is-3">Results</h2> 
+    <!--/ Hopper. -->
+    <h3 class="title is-4">Matching performance</h3>
+    <p> In each video, starting from the same initial state, 
+      a specific attribute is set to three different levels, 0.1, 0.5, and 0.9 (increasing from left to right). 
+      The video on the left is produced by AlignDiff, while the video on the right is produced by the baseline method.</p> 
+    
+    <br>
+    <p> Hopper - Jump height - A larger value indicates a higher jumping height. </p>
+    <div class="columns is-centered">
+      <div class="column is-6"> <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/hopper_ad_1.mp4" type="video/mp4">
+          </video> </div>
+      </div>
+      <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/hopper_bl_1.mp4" type="video/mp4">
+          </video> </div> </div>
+      </div>
+    </div>
+    <!--/ Hopper. -->
+
+    <!--/ Walker1. -->
+    <p> Walker - Leg preference - A larger value indicates a preference for using the left leg, 
+      while a smaller value indicates a preference for using the right leg. 
+      A middle value indicates normal walking with both legs. </p>
+    <div class="columns is-centered">
+      <div class="column is-6"> <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/walker_ad_2.mp4" type="video/mp4">
+          </video> </div>
+      </div>
+      <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/walker_bl_2.mp4" type="video/mp4">
+          </video> </div> </div>
+      </div>
+    </div>
+    <!--/ Walker1. -->
+
+    <!--/ Walker2. -->
+    <p> Walker - Torso height - A larger value indicates a higher torso height.  </p>
+    <div class="columns is-centered">
+      <div class="column is-6"> <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/walker_ad_3.mp4" type="video/mp4">
+          </video> </div>
+      </div>
+      <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/walker_bl_3.mp4" type="video/mp4">
+          </video> </div> </div>
+      </div>
+    </div>
+    <!--/ Walker2. -->
+
+    <!--/ Humanoid. -->
+    <p> Humanoid - Speed - A larger value indicates a faster movement speed. </p>
+    <div class="columns is-centered">
+      <div class="column is-6"> <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/humanoid_ad_0.mp4" type="video/mp4">
+          </video> </div>
+      </div>
+      <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/humanoid_bl_0.mp4" type="video/mp4">
+          </video> </div> </div>
+      </div>
+    </div>
+    <!--/ Humanoid. -->
+
+    <h3 class="title is-4">Switching performance</h3>
+    <p> In the video, we adjust the preference 
+      for the speed attribute every 200 steps and visualize the tracking curve of the 
+      target attribute (ground truth). The video on the left is produced by AlignDiff, 
+      while the video on the right is produced by the baseline method. 
+      AlignDiff is able to track the ground truth more quickly and accurately.</p> 
+    <br>
+    <div class="content has-text-centered">
+      <video id="replay-video"
+             controls
+             muted
+             preload
+             playsinline
+             width="75%">
+        <source src="./static/videos/switch.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+
+    <p> We further test AlignDiff's zero-shot capability under human instructions by 
+      deploying it to unseen downstream tasks. By adjusting attributes such as speed, 
+      torso height, and stride length by the human instructor, the walker robot, which 
+      was only trained on locomotion datasets, successfully complete the gap-crossing and obstacle avoidance tasks</p> 
+    <br>
+    <div class="columns is-centered">
+      <div class="column is-6"> <div class="content has-text-right">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/gap1-7.mp4" type="video/mp4">
+          </video> </div>
+      </div>
+      <div class="column is-6"> <div class="columns is-centered"> <div class="column content has-text-left">
+          <video id="matting-video" controls playsinline height="100%">
+            <source src="./static/videos/gap1-7.mp4" type="video/mp4">
+          </video> </div> </div>
+      </div>
+    </div>
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{dong2023aligndiff,
+      title={AlignDiff: Aligning Diverse Human Preferences via Behavior-Customisable Diffusion Model}, 
+      author={Zibin Dong and Yifu Yuan and Jianye Hao and Fei Ni and Yao Mu and Yan Zheng and Yujing Hu and Tangjie Lv and Changjie Fan and Zhipeng Hu},
+      year={2023},
+      journal={arXiv preprint arXiv:2310.02054}}
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2310.02054.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/aligndiff/aligndiff.github.io" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/aligndiff/aligndiff.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
