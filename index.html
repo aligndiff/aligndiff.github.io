@@ -78,6 +78,24 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
 
               <!-- Code Link. -->
               <span class="link-block">
@@ -208,98 +226,98 @@
       </div>
     </div>
     <!--/ Abstract. -->
-
+    <hr style="border-top: 5px dotted #b8b8b8;">
     <!-- Method. -->
-    <div class="columns"> 
-      <div class="column is-10 is-offset-1"> 
-        <h2 class="title is-3">Method</h2> 
-        <div style="display: flex; margin: auto; justify-content: center; width: 100%"> 
-          <img style="width: 100%" src="./static/images/AlignDiff_main.svg"/> 
-        </div> 
-        <div class="content has-text-justified" style="margin-top: 20px;"> 
-          <p class="caption"><br /> 
-            <strong>Overview of AlignDiff.</strong> AlignDiff leverages RLHF to quantify human preferences and 
-            utilizes them to guide diffusion planning for zero-shot behavior customizing. Firstly, 
-            we collect multi-perspective human feedback through crowdsourcing. Secondly, we use this 
-            feedback to train an attribute strength model, which we then use to relabel the behavioral 
-            datasets. Thirdly, we train a diffusion model on the annotated datasets, which can understand 
-            and generate trajectories with various attributes. Lastly, we can use AlignDiff for inference, 
-            aligning agent behaviors with human preferences at any time. 
-          </p> 
-        </div> 
-      </div> 
-    </div>
+    <!-- <div class="columns"> 
+      <div class="column is-10 is-offset-1">  -->
+    <h2 class="title is-3">Method</h2> 
+    <div style="display: flex; margin: auto; justify-content: center; width: 100%"> 
+      <img style="width: 100%" src="./static/images/AlignDiff_main.svg"/> 
+    </div> 
+    <div class="content has-text-justified" style="margin-top: 20px;"> 
+      <p class="caption"><br /> 
+        <strong>Overview of AlignDiff.</strong> AlignDiff leverages RLHF to quantify human preferences and 
+        utilizes them to guide diffusion planning for zero-shot behavior customizing. Firstly, 
+        we collect multi-perspective human feedback through crowdsourcing. Secondly, we use this 
+        feedback to train an attribute strength model, which we then use to relabel the behavioral 
+        datasets. Thirdly, we train a diffusion model on the annotated datasets, which can understand 
+        and generate trajectories with various attributes. Lastly, we can use AlignDiff for inference, 
+        aligning agent behaviors with human preferences at any time. 
+      </p> 
+    </div> 
+      <!-- </div> 
+    </div> -->
     <!--/ Method. -->
-
+    <hr style="border-top: 5px dotted #b8b8b8;">
     <h2 class="title is-3">Results</h2> 
     <!--/ Hopper. -->
     <h3 class="title is-4">Matching performance</h3>
     <p> In each video, starting from the same initial state, 
-      a specific attribute is set to three different levels, 0.1, 0.5, and 0.9 (increasing from left to right). 
-      The video on the left is produced by AlignDiff, while the video on the right is produced by the baseline method.</p> 
+      a specific attribute is set to three different levels, <strong>0.1, 0.5, and 0.9</strong> (increasing from left to right). 
+      The video on the left is produced by <strong>AlignDiff</strong>, while the video on the right is produced by the <strong>baseline</strong> method.</p> 
     
     <br>
-    <p> Hopper - Jump height - A larger value indicates a higher jumping height. </p>
+    <p style="text-align:center;" > <strong>Hopper - Jump height</strong> - A larger value indicates a higher jumping height. </p>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/hopper_ad_1.mp4" type="video/mp4">
-          </video> </div>
+            <source src="./static/videos/hopper_ad_1_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>AlignDiff</strong> </figcaption> </div>
       </div>
       <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/hopper_bl_1.mp4" type="video/mp4">
-          </video> </div> </div>
+            <source src="./static/videos/hopper_bl_1_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>Baseline</strong> </figcaption> </div> </div>
       </div>
     </div>
     <!--/ Hopper. -->
 
     <!--/ Walker1. -->
-    <p> Walker - Leg preference - A larger value indicates a preference for using the left leg, 
+    <p style="text-align:center;" > <strong>Walker - Leg preference</strong> - A larger value indicates a preference for using the left leg, 
       while a smaller value indicates a preference for using the right leg. 
       A middle value indicates normal walking with both legs. </p>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/walker_ad_2.mp4" type="video/mp4">
-          </video> </div>
+            <source src="./static/videos/walker_ad_2_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>AlignDiff</strong> </figcaption> </div>
       </div>
       <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/walker_bl_2.mp4" type="video/mp4">
-          </video> </div> </div>
+            <source src="./static/videos/walker_bl_2_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>Baseline</strong> </figcaption></div> </div>
       </div>
     </div>
     <!--/ Walker1. -->
 
     <!--/ Walker2. -->
-    <p> Walker - Torso height - A larger value indicates a higher torso height.  </p>
+    <p style="text-align:center;" > <strong>Walker - Torso height</strong> - A larger value indicates a higher torso height.  </p>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/walker_ad_3.mp4" type="video/mp4">
-          </video> </div>
+            <source src="./static/videos/walker_ad_3_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>AlignDiff</strong> </figcaption> </div>
       </div>
       <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/walker_bl_3.mp4" type="video/mp4">
-          </video> </div> </div>
+            <source src="./static/videos/walker_bl_3_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>Baseline</strong> </figcaption> </div> </div>
       </div>
     </div>
     <!--/ Walker2. -->
 
     <!--/ Humanoid. -->
-    <p> Humanoid - Speed - A larger value indicates a faster movement speed. </p>
+    <p style="text-align:center;" > <strong>Humanoid - Speed</strong> - A larger value indicates a faster movement speed. </p>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/humanoid_ad_0.mp4" type="video/mp4">
-          </video> </div>
+            <source src="./static/videos/humanoid_ad_0_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>AlignDiff</strong> </figcaption> </div>
       </div>
       <div class="column is-6"> <div class="columns is-centered"> <div class="column content">
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/humanoid_bl_0.mp4" type="video/mp4">
-          </video> </div> </div>
+            <source src="./static/videos/humanoid_bl_0_cap.mp4" type="video/mp4">
+          </video> <figcaption style="text-align:center;"> <strong>Baseline</strong> </figcaption> </div> </div>
       </div>
     </div>
     <!--/ Humanoid. -->
@@ -318,7 +336,7 @@
              preload
              playsinline
              width="75%">
-        <source src="./static/videos/switch.mp4"
+        <source src="./static/videos/switch_cap.mp4"
                 type="video/mp4">
       </video>
     </div>
@@ -331,23 +349,54 @@
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content has-text-right">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/gap1-7.mp4" type="video/mp4">
+            <source src="./static/videos/gap_cap.mp4" type="video/mp4">
           </video> </div>
       </div>
       <div class="column is-6"> <div class="columns is-centered"> <div class="column content has-text-left">
           <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/gap1-7.mp4" type="video/mp4">
+            <source src="./static/videos/limbo_cap.mp4" type="video/mp4">
           </video> </div> </div>
       </div>
     </div>
 
+    <h3 class="title is-4">Covering performance</h3>
+    <div style="display: flex; margin: auto; justify-content: center; width: 100%"> 
+      <img style="width: 100%" src="./static/images/dist.png"/> 
+    </div>
+    <div class="content has-text-justified" style="margin-top: 20px;"> 
+      <p class="caption"><br /> 
+        Covering distribution of AlignDiff and other baselines trained with human labels. 
+        The x-axis represents relative attribute strength, and the y-axis represents 
+        the corresponding actual attribute. The points (x, y) in the highlighted 
+        region indicate that the algorithm is more likely to produce trajectories 
+        with the actual attribute y given x as a condition. Comparing to the ground 
+        truth (dataset distribution), AlignDiff is able to better cover the dataset 
+        distribution and produce behaviors that are not present in the dataset 
+        (intuitively, it can fill the gaps in the disconnected regions within the highlighted area).
+      </p> 
+    </div> 
+
+    <h3 class="title is-4">Human evaluation</h3>
+    <div style="display: flex; margin: auto; justify-content: center; width: 90%"> 
+      <img style="width: 100%" src="./static/images/humaneval.png"/> 
+    </div>
+    <div class="content has-text-justified" style="margin-top: 20px;"> 
+      <p class="caption"><br /> 
+        Results of human evaluation. We invite human evaluators to assess the behaviors 
+        produced by the algorithm, with higher scores indicating stronger alignment with 
+        human preferences. AlignDiff outperforms other baselines significantly. For detailed 
+        information on the human evaluation, please refer to the experimental section of the paper.
+      </p> 
+    </div> 
+
+  
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="https://arxiv.org/pdf/2310.02054.pdf">
+         href="">
         <i class="fas fa-file-pdf"></i>
       </a>
       <a class="icon-link" href="https://github.com/aligndiff/aligndiff.github.io" class="external-link" disabled>
