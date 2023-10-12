@@ -257,7 +257,10 @@
       The video on the left is produced by <strong>AlignDiff</strong>, while the video on the right is produced by the <strong>baseline</strong> method.</p> 
     
     <br>
-    <p style="text-align:center;" > <strong>Hopper - Jump height</strong> - A larger value indicates a higher jumping height. </p>
+    <p> <strong>Hopper - Jump height</strong> - A larger value indicates a higher jumping height. 
+      AlignDiff exhibits a significant disparity in jump heights across three levels, while the baseline shows an insignificant 
+      difference in heights and exhibits peculiar jumping postures.</p>
+    <div style="height:10px;"></div>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
@@ -273,9 +276,13 @@
     <!--/ Hopper. -->
 
     <!--/ Walker1. -->
-    <p style="text-align:center;" > <strong>Walker - Leg preference</strong> - A larger value indicates a preference for using the left leg, 
+    <p> <strong>Walker - Leg preference</strong> - A larger value indicates a preference for using the left leg, 
       while a smaller value indicates a preference for using the right leg. 
-      A middle value indicates normal walking with both legs. </p>
+      A middle value indicates normal walking with both legs. AlignDiff demonstrates a clear preference for utilizing the left 
+      and right legs differently. In the left video, it relies on the right leg for walking, while in the middle video, 
+      it employs both legs simultaneously. In the right video, it relies on the left leg for walking. However, 
+      the baseline does not exhibit any behavioral variation in this regard.</p>
+    <div style="height:10px;"></div>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
@@ -291,7 +298,10 @@
     <!--/ Walker1. -->
 
     <!--/ Walker2. -->
-    <p style="text-align:center;" > <strong>Walker - Torso height</strong> - A larger value indicates a higher torso height.  </p>
+    <p> <strong>Walker - Torso height</strong> - A larger value indicates a higher torso height. AlignDiff rapidly 
+      adjusts its behavior and exhibits noticeable differences in torso height. However, the baseline, although eventually showing 
+      height disparities as well, takes a significantly longer time to adapt its behavior.</p>
+    <div style="height:10px;"></div>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
@@ -307,7 +317,9 @@
     <!--/ Walker2. -->
 
     <!--/ Humanoid. -->
-    <p style="text-align:center;" > <strong>Humanoid - Speed</strong> - A larger value indicates a faster movement speed. </p>
+    <p> <strong>Humanoid - Speed</strong> - A larger value indicates a faster movement speed. AlignDiff demonstrates 
+      significant differences in speed, while the baseline is unable to even perform the locomotion behavior.</p>
+    <div style="height:10px;"></div>
     <div class="columns is-centered">
       <div class="column is-6"> <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
@@ -321,6 +333,16 @@
       </div>
     </div>
     <!--/ Humanoid. -->
+
+    <p> We also conduct a quantitative evaluation of the matching performance. 
+      The performance scores of various algorithms are presented in the table below, where higher scores indicate stronger 
+      preference aligning capabilities. The establishment of quantitative metrics and the method of obtaining table data are 
+      described in the experimental section of the paper.</p>
+    <div style="height:10px;"></div>
+    <div style="display: flex; margin: auto; justify-content: center; width: 90%"> 
+      <img style="width: 100%" src="./static/images/matching_table.png"/> 
+    </div>
+    <div style="height:40px;"></div>
 
     <h3 class="title is-4">Switching performance</h3>
     <p> In the video, we adjust the preference 
@@ -347,18 +369,21 @@
       was only trained on locomotion datasets, successfully complete the gap-crossing and obstacle avoidance tasks</p> 
     <br>
     <div class="columns is-centered">
-      <div class="column is-6"> <div class="content has-text-right">
+      <div class="column is-4">
+        <img style="width: 100%" src="./static/images/switch.png"/>  </div>
+      <div class="column is-4"> <div class="content has-text-centered">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/gap_cap.mp4" type="video/mp4">
           </video> </div>
       </div>
-      <div class="column is-6"> <div class="columns is-centered"> <div class="column content has-text-left">
+      <div class="column is-4"> <div class="columns is-centered"> <div class="column content has-text-left">
           <video id="matting-video" controls playsinline height="100%">
             <source src="./static/videos/limbo_cap.mp4" type="video/mp4">
           </video> </div> </div>
       </div>
     </div>
 
+    <div style="height:20px;"></div>
     <h3 class="title is-4">Covering performance</h3>
     <div style="display: flex; margin: auto; justify-content: center; width: 100%"> 
       <img style="width: 100%" src="./static/images/dist.png"/> 
@@ -376,6 +401,7 @@
       </p> 
     </div> 
 
+    <div style="height:20px;"></div>
     <h3 class="title is-4">Human evaluation</h3>
     <div style="display: flex; margin: auto; justify-content: center; width: 90%"> 
       <img style="width: 100%" src="./static/images/humaneval.png"/> 
@@ -389,7 +415,63 @@
       </p> 
     </div> 
 
-  
+    <hr style="border-top: 5px dotted #b8b8b8;">
+    <h3 class="title is-4">Released behavioral & human feedback datasets</h3>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: center ;
+        padding: 8px;
+      }
+      tr:first-child {
+        background-color: #bbc4dd;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-size: 16px;
+      }
+      tr {
+        background-color: white;
+        color: black;
+        text-align: center;
+        font-size: 14px;
+      }
+      </style>
+      
+      <table>
+        <tr>
+          <th>Domain</th>
+          <th>Transitions</th>
+          <th>Feedbacks</th>
+          <th>Size(Behavioral datasets/Feedback datasets)</th>
+          <th>Link</th>
+        </tr>
+        <tr>
+          <td>Hopper</td>
+          <td>5M</td>
+          <td>1228</td>
+          <td>324M/42.7M</td>
+          <td><a href="">Download</a></td>
+        </tr>
+        <tr>
+          <td>Walker</td>
+          <td>3.2M</td>
+          <td>4000</td>
+          <td>1.19G/91.6M</td>
+          <td><a href="">Download</a></td>
+        </tr>
+        <tr>
+          <td>Humanoid</td>
+          <td>2.5M</td>
+          <td>4000</td>
+          <td>4.11G/875M</td>
+          <td><a href="">Download</a></td>
+        </tr>
+      </table>
+
 </section>
 
 <footer class="footer">
